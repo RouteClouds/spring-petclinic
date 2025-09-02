@@ -1,0 +1,15 @@
+Yes - Please Proceed to Task 1 (Idempotency) by analyzing the provided audit report path?
+I think that we are good with the main which is primary branch - Do you want the Ansible and recovery stages to run on both main and develop or only on main?
+Yes for all four - Should I implement ALB ingress for all four UIs (Grafana, Prometheus, Alertmanager, ArgoCD) with TLS and basic auth where applicable?
+
+9650ea4afd82834389347b1cfbb557aac12bf67c
+
+
+   1. First Secret:
+       * Name: SONAR_TOKEN
+       * Value: The long token string you generated from your SonarCloud account's
+         security settings.
+
+   2. Second Secret:
+       * Name: SONAR_HOST_URL
+       * Value: https://sonarcloud.io

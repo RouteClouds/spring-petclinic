@@ -35,4 +35,4 @@ This document tracks the high-level tasks for implementing a full CI/CD pipeline
   - [x] Visualized the target architecture with `cicd_architecture.png`.
   - [x] Created project tracking and roadmap documents.
 - [x] **Git Workflow Implementation**
-  - [x] Formalize Git branching strategy (e.g., GitFlow)
+  - [x] Formalize Git branching strategy (Simplified to a single `main` branch model)

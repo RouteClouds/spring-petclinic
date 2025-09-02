@@ -29,3 +29,9 @@ This file logs the development and changes made during our sessions to implement
 
 5.  **CI Pipeline Enhancement (SonarQube)**
     *   Began integration of SonarQube for static code analysis into the GitHub Actions workflow.
+    *   After multiple attempts to resolve a branch analysis issue with SonarCloud, a decision was made to simplify the project's workflow.
+
+6.  **Workflow Simplification**
+    *   Consolidated all work into the `main` branch and removed the `develop` branch.
+    *   Updated the GitHub Actions workflow to trigger only on the `main` branch.
+    *   Revised all project documentation to reflect the new single-branch strategy.
