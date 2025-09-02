@@ -24,3 +24,7 @@ This document tracks the high-level tasks for implementing a full CI/CD pipeline
 - [x] **Phase 2: Containerization & Registry**
   - [x] Set up a cloud container registry (e.g., AWS ECR)
   - [x] Add automated Docker image push to CI pipeline
+- [x] **Phase 3: Infrastructure as Code (IaC)**
+  - [x] Write Terraform/CloudFormation scripts for a Kubernetes cluster
+  - [x] Write IaC for a managed database (e.g., AWS RDS)
+  - [x] Implement secrets management for database credentials

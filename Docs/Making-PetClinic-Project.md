@@ -46,3 +46,7 @@ This file logs the development and changes made during our sessions to implement
     *   Completed configuration for AWS ECR, including setting up repository and IAM user, and adding necessary GitHub secrets.
     *   Updated the GitHub Actions workflow to build and push the Docker image to ECR.
     *   Successfully completed Phase 2: The pipeline now builds and pushes the Docker image to ECR.
+
+9.  **Phase 3: Infrastructure as Code (IaC)**
+    *   Generated Terraform code for provisioning a VPC, EKS cluster, and RDS PostgreSQL database on AWS (`us-east-1`).
+    *   Created `versions.tf`, `providers.tf`, `variables.tf`, `main.tf`, and `outputs.tf` files in the `terraform/` directory.
