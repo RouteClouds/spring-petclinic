@@ -11,7 +11,7 @@ This document outlines the step-by-step process for taking the Spring PetClinic 
 1.  **Formalize Branching Strategy**: Adopt a standard Git branching model like GitFlow. This typically involves `main` for production releases, `develop` for the latest integrated changes, and `feature/*` branches for new work.
 2.  **Enhance CI Pipeline**: Review the existing GitHub Actions workflow (`maven-build.yml`).
     *   Ensure it triggers on all relevant branches (pull requests to `develop` and `main`).
-    *   Add a step for static code analysis using a tool like **SonarQube** to catch bugs and security vulnerabilities early.
+    *   Add a step for static code analysis using a tool like **SonarQube** to catch bugs and security vulnerabilities early. (*Note: SonarQube integration is currently temporarily disabled to unblock the pipeline due to persistent configuration issues. It can be revisited later.*)
 3.  **Secure a Build Tool**: Standardize on either Maven or Gradle for all CI/CD operations. The existing `./mvnw verify` is a perfect command for this phase as it compiles, runs tests, and packages the app.
 4.  **(Optional) Publish JAR Artifact**: Configure the CI pipeline to publish the packaged `.jar` file to an artifact repository like **JFrog Artifactory** or **Sonatype Nexus**. This provides versioned, stable builds for rollbacks or manual distribution.
 
