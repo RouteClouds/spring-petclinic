@@ -36,4 +36,5 @@ jobs:
             -Dsonar.projectKey=RouteClouds_spring-petclinic \
             -Dsonar.organization=routeclouds \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.branch.name=${{ github.ref_name }}
