@@ -5,9 +5,13 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - develop
 
 jobs:
   build:
@@ -25,5 +29,15 @@ jobs:
           java-version: ${{matrix.java}}
           distribution: 'adopt'
           cache: maven
+
       - name: Build with Maven Wrapper
         run: ./mvnw -B verify
+
+      - name: SonarQube Scan
+        if: github.actor != 'dependabot[bot]' && github.ref == 'refs/heads/develop'
+        run: |
+          ./mvnw -B sonar:sonar \
+            -Dsonar.projectKey=RouteClouds_spring-petclinic \
+            -Dsonar.organization=routeclouds \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
