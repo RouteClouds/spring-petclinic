@@ -34,9 +34,58 @@ This document outlines the step-by-step process for taking the Spring PetClinic 
 
 *Goal: Define all necessary cloud infrastructure in code for repeatable, automated environment creation.*
 
-1.  **Provision Kubernetes Cluster**: Use an IaC tool like **Terraform** or **AWS CloudFormation** to define and create a managed Kubernetes cluster (e.g., **Amazon EKS**). This code should specify the cluster version, node sizes, and networking.
-2.  **Provision Managed Database**: Use the same IaC tool to provision a managed PostgreSQL or MySQL database (e.g., **Amazon RDS**). This separates the database from the application cluster, which is a best practice.
-3.  **Implement Secrets Management**: Store the database URL, username, and password securely. Use **Kubernetes Secrets** (managed by your IaC) or a dedicated tool like **HashiCorp Vault**. The application will consume these secrets as environment variables at runtime.
+**Tools & Technologies:**
+*   **IaC Tool**: Terraform
+*   **Cloud Provider**: AWS
+*   **Services**: Amazon EKS (Elastic Kubernetes Service), Amazon RDS (Relational Database Service - PostgreSQL), Amazon VPC (Virtual Private Cloud), AWS IAM (Identity and Access Management)
+*   **Region**: `us-east-1`
+
+**Requirements for User:**
+*   An active AWS Account.
+*   AWS CLI installed and configured with credentials that have sufficient permissions to create VPCs, EKS clusters, RDS instances, and IAM roles.
+*   Terraform CLI installed locally (version 1.0+ recommended).
+
+**Process & Steps:**
+
+1.  **Terraform Project Structure**:
+    *   We will create a dedicated `terraform/` directory at the project root.
+    *   Key files will include:
+        *   `versions.tf`: Defines Terraform and provider versions.
+        *   `main.tf`: Contains the main resource definitions (VPC, EKS, RDS).
+        *   `variables.tf`: Declares input variables for customization (e.g., region, instance types).
+        *   `outputs.tf`: Defines output values (e.g., EKS cluster endpoint, RDS endpoint).
+        *   `providers.tf`: Configures AWS provider.
+
+2.  **Network Infrastructure (VPC)**:
+    *   Provision a dedicated **Amazon VPC** for the EKS cluster and RDS database.
+    *   Create public and private subnets across multiple Availability Zones for high availability.
+    *   Set up an Internet Gateway for public subnet access and NAT Gateways for private subnet outbound internet access.
+
+3.  **EKS Cluster Provisioning**:
+    *   Define and create an **Amazon EKS Cluster**.
+    *   Configure **IAM Roles** for the EKS control plane and worker nodes with necessary permissions.
+    *   Provision an **EKS Node Group** (EC2 instances) that will serve as the worker nodes for our Kubernetes cluster. We will use a suitable instance type (e.g., `t3.medium` or `t3.large` for a small cluster).
+
+4.  **RDS Database Provisioning**:
+    *   Provision an **Amazon RDS PostgreSQL instance** (version 14).
+    *   Place the RDS instance in private subnets within the VPC for enhanced security.
+    *   Configure **Security Groups** to allow traffic only from the EKS cluster's security group to the RDS instance on the PostgreSQL port (5432).
+    *   Define database name, username, and password.
+
+5.  **Secrets Management**:
+    *   For this training project, initial database credentials (username/password) will be passed directly as Terraform variables for simplicity.
+    *   **Best Practice for Production**: In a production environment, these secrets should be managed by a dedicated service like AWS Secrets Manager and retrieved by the application at runtime.
+
+6.  **Integration with ECR Image**:
+    *   The Kubernetes deployment manifests (which we will create in Phase 4) will reference the Docker image that was built and pushed to your ECR repository in Phase 2. Terraform will provision the infrastructure, and Kubernetes will deploy the application using that image.
+
+**Your Role (User) in this Phase:**
+*   I will generate the Terraform code for each component.
+*   You will be responsible for executing the Terraform commands locally:
+    *   `terraform init`: Initializes the Terraform working directory.
+    *   `terraform plan`: Shows what changes Terraform will make to your infrastructure.
+    *   `terraform apply`: Executes the planned changes to provision the resources in your AWS account.
+*   You will need to ensure your AWS CLI is configured with credentials that have the necessary permissions.
 
 ---
 
