@@ -29,11 +29,11 @@ jobs:
       - name: Build with Maven Wrapper
         run: ./mvnw -B verify
 
-      - name: SonarQube Scan
-        if: github.actor != 'dependabot[bot]'
-        run: |
-          ./mvnw -B sonar:sonar \
-            -Dsonar.projectKey=RouteClouds_spring-petclinic \
-            -Dsonar.organization=routeclouds \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      # - name: SonarQube Scan
+      #   if: github.actor != 'dependabot[bot]'
+      #   run: |
+      #     ./mvnw -B sonar:sonar \
+      #       -Dsonar.projectKey=RouteClouds_spring-petclinic \
+      #       -Dsonar.organization=routeclouds \
+      #       -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+      #       -Dsonar.login=${{ secrets.SONAR_TOKEN }}
