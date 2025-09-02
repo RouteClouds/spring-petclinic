@@ -40,3 +40,8 @@ This file logs the development and changes made during our sessions to implement
     *   Encountered persistent "Could not find a default branch" errors with SonarQube analysis, despite attempts to fix branch configuration and explicit branch naming.
     *   Temporarily disabled the SonarQube scan step in the GitHub Actions workflow to unblock the pipeline and allow further progress.
     *   Successfully achieved a passing CI build after disabling SonarQube.
+
+8.  **Phase 2: Containerization & Registry**
+    *   Began integrating Docker image build and push into the CI pipeline.
+    *   Completed configuration for AWS ECR, including setting up repository and IAM user, and adding necessary GitHub secrets.
+    *   Updated the GitHub Actions workflow to build and push the Docker image to ECR.

@@ -5,24 +5,7 @@ This document tracks the high-level tasks for implementing a full CI/CD pipeline
 ## To Do
 
 - [ ] **Phase 1: Foundational Setup & CI**
-  - [ ] Formalize Git branching strategy (e.g., GitFlow)
-  - [ ] Enhance CI pipeline with code quality gates (SonarQube)
   - [ ] Configure artifact repository (e.g., Nexus/Artifactory) for JARs
-- [ ] **Phase 2: Containerization & Registry**
-  - [ ] Set up a cloud container registry (e.g., AWS ECR)
-  - [ ] Add automated Docker image push to CI pipeline
-- [ ] **Phase 3: Infrastructure as Code (IaC)**
-  - [ ] Write Terraform/CloudFormation scripts for a Kubernetes cluster
-  - [ ] Write IaC for a managed database (e.g., AWS RDS)
-  - [ ] Implement secrets management for database credentials
-- [ ] **Phase 4: Continuous Deployment (CD)**
-  - [ ] Create a separate CD workflow in GitHub Actions
-  - [ ] Use Kustomize to manage environment-specific Kubernetes manifests
-  - [ ] Automate deployment to the Kubernetes cluster
-- [ ] **Phase 5: Monitoring & Observability**
-  - [ ] Deploy Prometheus and Grafana to the cluster
-  - [ ] Set up a log aggregation stack (e.g., EFK)
-  - [ ] Configure alerting for critical application issues
 
 ## In Progress
 
@@ -38,3 +21,6 @@ This document tracks the high-level tasks for implementing a full CI/CD pipeline
   - [x] Formalize Git branching strategy (Simplified to a single `main` branch model)
 - [x] **Phase 1: Foundational Setup & CI**
   - [x] Enhance CI pipeline with code quality gates (SonarQube - *temporarily disabled to unblock pipeline*)
+- [x] **Phase 2: Containerization & Registry**
+  - [x] Set up a cloud container registry (e.g., AWS ECR)
+  - [x] Add automated Docker image push to CI pipeline
