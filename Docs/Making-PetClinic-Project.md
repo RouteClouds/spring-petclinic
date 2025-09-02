@@ -45,3 +45,4 @@ This file logs the development and changes made during our sessions to implement
     *   Began integrating Docker image build and push into the CI pipeline.
     *   Completed configuration for AWS ECR, including setting up repository and IAM user, and adding necessary GitHub secrets.
     *   Updated the GitHub Actions workflow to build and push the Docker image to ECR.
+    *   Successfully completed Phase 2: The pipeline now builds and pushes the Docker image to ECR.
