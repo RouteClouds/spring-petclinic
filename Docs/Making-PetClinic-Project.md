@@ -79,3 +79,7 @@ This file logs the development and changes made during our sessions to implement
 5.  **Continuous Deployment (CD) Workflow**
     *   Created `.github/workflows/cd.yml` to automatically deploy the application to the EKS cluster.
     *   The workflow is triggered on the successful completion of the "Java CI with Maven" workflow.
+
+6.  **Workflow Cleanup**
+    *   Disabled the `gradle-build.yml` and `deploy-and-test-cluster.yml` workflows by commenting them out.
+    *   These workflows are not needed for our current setup and were causing confusion by triggering multiple pipelines.
