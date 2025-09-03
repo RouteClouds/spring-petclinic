@@ -5,7 +5,7 @@ output "eks_cluster_name" {
 
 output "eks_kubeconfig" {
   description = "Kubeconfig for the EKS cluster"
-  value       = aws_eks_cluster.main.kubeconfig
+  value       = local.kubeconfig
   sensitive   = true
 }
 

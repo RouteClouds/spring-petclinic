@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "main" {
 }
 
 resource "aws_eip" "nat" {
-  vpc = true
+  domain = "vpc"
 
   tags = {
     Name = "${var.project_name}-nat-eip"
@@ -249,3 +249,43 @@ resource "aws_db_instance" "main" {
   }
 }
 
+data "aws_eks_cluster_auth" "main" {
+  name = aws_eks_cluster.main.name
+}
+
+locals {
+  kubeconfig = yamlencode({
+    apiVersion      = "v1"
+    kind            = "Config"
+    current-context = "aws"
+    clusters = [{
+      name = aws_eks_cluster.main.name
+      cluster = {
+        server                   = aws_eks_cluster.main.endpoint
+        certificate-authority-data = aws_eks_cluster.main.certificate_authority[0].data
+      }
+    }]
+    contexts = [{
+      name = "aws"
+      context = {
+        cluster = aws_eks_cluster.main.name
+        user    = "aws"
+      }
+    }]
+    users = [{
+      name = "aws"
+      user = {
+        exec = {
+          apiVersion = "client.authentication.k8s.io/v1beta1"
+          command    = "aws"
+          args = [
+            "eks",
+            "get-token",
+            "--cluster-name",
+            aws_eks_cluster.main.name
+          ]
+        }
+      }
+    }]
+  })
+}

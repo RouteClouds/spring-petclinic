@@ -1,13 +1,12 @@
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.778 s
-[INFO] Finished at: 2025-09-02T19:04:21Z
-[INFO] ------------------------------------------------------------------------
-Error:  Failed to execute goal org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar (default-cli) on project spring-petclinic: Could not find a default branch for project with key 'RouteClouds_spring-petclinic'. Make sure project exists. -> [Help 1]
-Error:  
-Error:  To see the full stack trace of the errors, re-run Maven with the -e switch.
-Error:  Re-run Maven using the -X switch to enable full debug logging.
-Error:  
-Error:  For more information about the errors and possible solutions, please read the following articles:
-Error:  [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-Error: Process completed with exit code 1.
+aws_db_instance.main: Creation complete after 5m5s [id=db-Q4CXGXCJVMMHM2VGDIMFKM4UUU]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+eks_cluster_name = "petclinic-cluster"
+eks_kubeconfig = <sensitive>
+rds_endpoint = "petclinic-db.c6t4q0g6i4n5.us-east-1.rds.amazonaws.com"
+rds_password = <sensitive>
+rds_port = 5432
+rds_username = "petclinicadmin"

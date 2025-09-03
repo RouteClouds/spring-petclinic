@@ -60,3 +60,22 @@ This file logs the development and changes made during our sessions to implement
     *   Updated `Docs/RoadMap-PetClinic-DevOps.md` to mark Phase 3 as complete and highlight Phase 4.
     *   Updated `Docs/gemini-mem.md` with current project status and instructions for continuing on a new system.
     *   Prepared all documentation for commit and push to GitHub, facilitating project transfer.
+
+2.  **Terraform and SonarQube Fixes**
+    *   Fixed a SonarQube error by adding the `sonar-maven-plugin` to `pom.xml` and re-enabling the SonarQube scan in the GitHub Actions workflow.
+    *   Addressed a Terraform error by correcting the `kubeconfig` output in `outputs.tf` and fixing an invalid `security_groups` reference in `main.tf`.
+    *   Resolved a deprecation warning for the `aws_eip` resource in `main.tf`.
+    *   Fixed an IAM permission issue by instructing the user to add the `ec2:DescribeAvailabilityZones` permission to the `github-actions-user` IAM user.
+
+3.  **Infrastructure Provisioning**
+    *   Successfully provisioned the AWS infrastructure (VPC, EKS cluster, RDS database) using Terraform.
+
+4.  **Kubernetes Manifests**
+    *   Created `k8s/secrets.yml` to store the database credentials.
+    *   Created `k8s/deployment.yml` to define the deployment for the PetClinic application.
+    *   Created `k8s/service.yml` to expose the application using a LoadBalancer.
+    *   Archived the old manifest files (`db.yml` and `petclinic.yml`) in the `k8s/archive` directory.
+
+5.  **Continuous Deployment (CD) Workflow**
+    *   Created `.github/workflows/cd.yml` to automatically deploy the application to the EKS cluster.
+    *   The workflow is triggered on the successful completion of the "Java CI with Maven" workflow.

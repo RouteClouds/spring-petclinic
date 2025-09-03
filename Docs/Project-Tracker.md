@@ -4,10 +4,10 @@ This document tracks the high-level tasks for implementing a full CI/CD pipeline
 
 ## To Do
 
-- [ ] **Phase 4: Continuous Deployment (CD)**
-  - [ ] Create Kubernetes deployment manifests
-  - [ ] Automate deployment to EKS cluster
-  - [ ] Configure zero-downtime updates
+- [ ] **Phase 5: Monitoring & Observability**
+  - [ ] Deploy Prometheus and Grafana
+  - [ ] Set up EFK stack for logging
+  - [ ] Configure alerts with Alertmanager
 
 ## In Progress
 
@@ -30,3 +30,10 @@ This document tracks the high-level tasks for implementing a full CI/CD pipeline
   - [x] Write Terraform/CloudFormation scripts for a Kubernetes cluster
   - [x] Write IaC for a managed database (e.g., AWS RDS)
   - [x] Implement secrets management for database credentials
+  - [x] Successfully provisioned AWS infrastructure using Terraform.
+- [x] **Phase 4: Continuous Deployment (CD)**
+  - [x] Create Kubernetes deployment manifests
+  - [x] Create Kubernetes service manifests
+  - [x] Create Kubernetes secrets manifests
+  - [x] Create CD workflow in GitHub Actions
+  - [x] Configure zero-downtime updates
