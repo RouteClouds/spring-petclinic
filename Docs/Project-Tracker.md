@@ -4,8 +4,10 @@ This document tracks the high-level tasks for implementing a full CI/CD pipeline
 
 ## To Do
 
-- [ ] **Phase 1: Foundational Setup & CI**
-  - [ ] Configure artifact repository (e.g., Nexus/Artifactory) for JARs
+- [ ] **Phase 4: Continuous Deployment (CD)**
+  - [ ] Create Kubernetes deployment manifests
+  - [ ] Automate deployment to EKS cluster
+  - [ ] Configure zero-downtime updates
 
 ## In Progress
 

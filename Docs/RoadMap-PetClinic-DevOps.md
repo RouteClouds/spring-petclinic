@@ -34,6 +34,8 @@ This document outlines the step-by-step process for taking the Spring PetClinic 
 
 *Goal: Define all necessary cloud infrastructure in code for repeatable, automated environment creation.*
 
+**Status: ✅ Completed - Terraform code generated and ready for execution.**
+
 **Tools & Technologies:**
 *   **IaC Tool**: Terraform
 *   **Cloud Provider**: AWS
@@ -92,6 +94,8 @@ This document outlines the step-by-step process for taking the Spring PetClinic 
 ### **Phase 4: Continuous Deployment (CD)**
 
 *Goal: Automate the release of the containerized application to the Kubernetes cluster.*
+
+**Next Step: Implement this phase after successful Terraform apply.**
 
 1.  **Create CD Workflow**: In GitHub Actions, create a new workflow that triggers after the CI workflow successfully builds and pushes an image from the `main` branch.
 2.  **Manage Manifests with Kustomize**: The `k8s/` directory contains base manifests. Use **Kustomize** to manage environment-specific configurations without duplicating files. For example, Kustomize can be used to patch the `deployment.yml` with the correct image tag for the new release.
